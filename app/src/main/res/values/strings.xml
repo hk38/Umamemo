@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">UmaMemo</string>
+    <string name="blue_type">青因子</string>
+    <string name="red_type">赤因子</string>
+</resources>
