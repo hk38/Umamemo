@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?background"
     tools:context=".MainActivity">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -22,8 +14,587 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="add"
+        android:focusable="true"
+        app:layout_anchor="@id/bottom_sheet"
+        app:layout_anchorGravity="top|end"
         app:srcCompat="@drawable/ic_baseline_add_24" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="32dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?background"
+        android:paddingTop="32dp"
+        android:paddingBottom="24dp"
+        app:behavior_peekHeight="32dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        tools:context=".BottomSheetFragment">
+
+        <HorizontalScrollView
+            android:id="@+id/blue_scroll_view1"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@id/rating_blue1"
+            app:layout_constraintEnd_toStartOf="@id/blue_scroll_view2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioGroup
+                android:id="@+id/blue_radio_group1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <RadioButton
+                    android:id="@+id/radio_speed1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="スピード" />
+
+                <RadioButton
+                    android:id="@+id/radio_stamina1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="スタミナ" />
+
+                <RadioButton
+                    android:id="@+id/radio_power1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="パワー" />
+
+                <RadioButton
+                    android:id="@+id/radio_guts1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="根性" />
+
+                <RadioButton
+                    android:id="@+id/radio_intelligent1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="賢さ" />
+
+            </RadioGroup>
+        </HorizontalScrollView>
+
+        <RatingBar
+            android:id="@+id/rating_blue1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="3"
+            android:rating="1"
+            android:stepSize="1"
+            app:layout_constraintBottom_toTopOf="@id/blue_scroll_view3"
+            app:layout_constraintEnd_toStartOf="@id/rating_blue2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/blue_scroll_view1" />
+
+        <HorizontalScrollView
+            android:id="@+id/blue_scroll_view2"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@id/rating_blue2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/blue_scroll_view1"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioGroup
+                android:id="@+id/blue_radio_group2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <RadioButton
+                    android:id="@+id/radio_speed2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="スピード" />
+
+                <RadioButton
+                    android:id="@+id/radio_stamina2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="スタミナ" />
+
+                <RadioButton
+                    android:id="@+id/radio_power2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="パワー" />
+
+                <RadioButton
+                    android:id="@+id/radio_guts2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="根性" />
+
+                <RadioButton
+                    android:id="@+id/radio_intelligent2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="賢さ" />
+            </RadioGroup>
+        </HorizontalScrollView>
+
+        <RatingBar
+            android:id="@+id/rating_blue2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="3"
+            android:rating="1"
+            android:stepSize="1"
+            app:layout_constraintBottom_toTopOf="@id/red_scroll_view1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rating_blue1"
+            app:layout_constraintTop_toBottomOf="@+id/blue_scroll_view2" />
+
+        <HorizontalScrollView
+            android:id="@+id/blue_scroll_view3"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toTopOf="@id/rating_blue3"
+            app:layout_constraintEnd_toStartOf="@id/red_scroll_view1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rating_blue1">
+
+            <RadioGroup
+                android:id="@+id/blue_radio_group3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <RadioButton
+                    android:id="@+id/radio_speed3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="スピード" />
+
+                <RadioButton
+                    android:id="@+id/radio_stamina3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="スタミナ" />
+
+                <RadioButton
+                    android:id="@+id/radio_power3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="パワー" />
+
+                <RadioButton
+                    android:id="@+id/radio_guts3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="根性" />
+
+                <RadioButton
+                    android:id="@+id/radio_intelligent3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="賢さ" />
+            </RadioGroup>
+        </HorizontalScrollView>
+
+        <RatingBar
+            android:id="@+id/rating_blue3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="3"
+            android:rating="1"
+            android:stepSize="1"
+            app:layout_constraintBottom_toTopOf="@id/red_scroll_view2"
+            app:layout_constraintEnd_toStartOf="@id/rating_red1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/blue_scroll_view3" />
+
+        <HorizontalScrollView
+            android:id="@+id/red_scroll_view1"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toTopOf="@id/rating_red1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/blue_scroll_view3"
+            app:layout_constraintTop_toBottomOf="@id/rating_blue2">
+
+            <RadioGroup
+                android:id="@+id/red_radio_group1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <RadioButton
+                    android:id="@+id/radio_turf1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="芝" />
+
+                <RadioButton
+                    android:id="@+id/radio_dirt1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="ダート" />
+
+                <RadioButton
+                    android:id="@+id/radio_short1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="短距離" />
+
+                <RadioButton
+                    android:id="@+id/radio_mile1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="マイル" />
+
+                <RadioButton
+                    android:id="@+id/radio_middle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="中距離" />
+
+                <RadioButton
+                    android:id="@+id/radio_long1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="長距離" />
+
+                <RadioButton
+                    android:id="@+id/radio_fr1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="逃げ" />
+
+                <RadioButton
+                    android:id="@+id/radio_stalker1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="先行" />
+
+                <RadioButton
+                    android:id="@+id/radio_sotp1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="差し" />
+
+                <RadioButton
+                    android:id="@+id/radio_offer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="追込" />
+            </RadioGroup>
+        </HorizontalScrollView>
+
+        <RatingBar
+            android:id="@+id/rating_red1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="3"
+            android:rating="1"
+            android:stepSize="1"
+            app:layout_constraintBottom_toTopOf="@id/red_scroll_view3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rating_blue3"
+            app:layout_constraintTop_toBottomOf="@id/red_scroll_view1" />
+
+        <HorizontalScrollView
+            android:id="@+id/red_scroll_view2"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toTopOf="@id/rating_red2"
+            app:layout_constraintEnd_toStartOf="@id/red_scroll_view3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rating_blue3">
+
+            <RadioGroup
+                android:id="@+id/red_radio_group2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <RadioButton
+                    android:id="@+id/radio_turf2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="芝" />
+
+                <RadioButton
+                    android:id="@+id/radio_dirt2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="ダート" />
+
+                <RadioButton
+                    android:id="@+id/radio_short2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="短距離" />
+
+                <RadioButton
+                    android:id="@+id/radio_mile2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="マイル" />
+
+                <RadioButton
+                    android:id="@+id/radio_middle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="中距離" />
+
+                <RadioButton
+                    android:id="@+id/radio_long2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="長距離" />
+
+                <RadioButton
+                    android:id="@+id/radio_fr2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="逃げ" />
+
+                <RadioButton
+                    android:id="@+id/radio_stalker2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="先行" />
+
+                <RadioButton
+                    android:id="@+id/radio_sotp2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="差し" />
+
+                <RadioButton
+                    android:id="@+id/radio_offer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="追込" />
+            </RadioGroup>
+        </HorizontalScrollView>
+
+        <RatingBar
+            android:id="@+id/rating_red2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="3"
+            android:rating="1"
+            android:stepSize="1"
+            app:layout_constraintEnd_toStartOf="@id/rating_red3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/red_scroll_view2" />
+
+        <HorizontalScrollView
+            android:id="@+id/red_scroll_view3"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toTopOf="@id/rating_red3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/red_scroll_view2"
+            app:layout_constraintTop_toBottomOf="@id/rating_red1">
+
+            <RadioGroup
+                android:id="@+id/red_radio_group3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <RadioButton
+                    android:id="@+id/radio_turf3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="芝" />
+
+                <RadioButton
+                    android:id="@+id/radio_dirt3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="ダート" />
+
+                <RadioButton
+                    android:id="@+id/radio_short3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="短距離" />
+
+                <RadioButton
+                    android:id="@+id/radio_mile3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="マイル" />
+
+                <RadioButton
+                    android:id="@+id/radio_middle3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="中距離" />
+
+                <RadioButton
+                    android:id="@+id/radio_long3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="長距離" />
+
+                <RadioButton
+                    android:id="@+id/radio_fr3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="逃げ" />
+
+                <RadioButton
+                    android:id="@+id/radio_stalker3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="先行" />
+
+                <RadioButton
+                    android:id="@+id/radio_sotp3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="差し" />
+
+                <RadioButton
+                    android:id="@+id/radio_offer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="追込" />
+            </RadioGroup>
+        </HorizontalScrollView>
+
+        <RatingBar
+            android:id="@+id/rating_red3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="3"
+            android:rating="1"
+            android:stepSize="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rating_red2"
+            app:layout_constraintTop_toBottomOf="@id/red_scroll_view3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
