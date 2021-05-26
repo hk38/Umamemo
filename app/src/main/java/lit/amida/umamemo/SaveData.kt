@@ -31,7 +31,7 @@ open class SaveData (
 
 open class FactorData(
     open var type: Int = 0,
-    open var value: Float = 0f
+    open var count: Float = 0f
 ): RealmObject()
 
 const val BLUE_TYPE_SPEED = 1

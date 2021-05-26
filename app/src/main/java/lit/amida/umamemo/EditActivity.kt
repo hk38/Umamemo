@@ -63,17 +63,27 @@ class EditActivity : AppCompatActivity() {
                 else item.point = binding.editInputPoint.text.toString().toInt()
                 item.name = binding.editInputName.text.toString()
 
-                item.blueFactors = RealmList(
-                    FactorData(blueArray[0], binding.ratingMyBlue.rating),
-                    FactorData(blueArray[1], binding.ratingSireBlue.rating),
-                    FactorData(blueArray[3], binding.ratingFamilyBlue.rating)
-                )
+                val blueFactor1 = it.createObject(FactorData::class.java)
+                blueFactor1.type = blueArray[0]
+                blueFactor1.count = binding.ratingMyBlue.rating
+                val blueFactor2 = it.createObject(FactorData::class.java)
+                blueFactor2.type = blueArray[1]
+                blueFactor2.count = binding.ratingSireBlue.rating
+                val blueFactor3 = it.createObject(FactorData::class.java)
+                blueFactor3.type = blueArray[2]
+                blueFactor3.count = binding.ratingFamilyBlue.rating
+                item.blueFactors = RealmList(blueFactor1, blueFactor2, blueFactor3)
 
-                item.redFactors = RealmList(
-                    FactorData(redArray[0], binding.ratingMyRed.rating),
-                    FactorData(redArray[1], binding.ratingSireRed.rating),
-                    FactorData(redArray[3], binding.ratingFamilyRed.rating)
-                )
+                val redFactor1 = it.createObject(FactorData::class.java)
+                redFactor1.type = redArray[0]
+                redFactor1.count = binding.ratingMyRed.rating
+                val redFactor2 = it.createObject(FactorData::class.java)
+                redFactor2.type = redArray[1]
+                redFactor2.count = binding.ratingSireRed.rating
+                val redFactor3 = it.createObject(FactorData::class.java)
+                redFactor3.type = redArray[2]
+                redFactor3.count = binding.ratingFamilyRed.rating
+                item.redFactors = RealmList(redFactor1, redFactor2, redFactor3)
 
                 blueArray.forEachIndexed { index, i ->
                     when(i){
@@ -101,6 +111,8 @@ class EditActivity : AppCompatActivity() {
                     }
                 }
             }
+
+            finish()
         }
     }
 }

@@ -2,11 +2,6 @@ package lit.amida.umamemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.RatingBar
-import android.widget.TextView
 import io.realm.Realm
 import lit.amida.umamemo.databinding.ActivityDetailBinding
 
@@ -44,7 +39,7 @@ class DetailActivity : AppCompatActivity() {
                 else -> ""
             }
 
-            ratingBlueList[i].rating = factorData.value
+            ratingBlueList[i].rating = factorData.count
         }
 
 
@@ -63,7 +58,7 @@ class DetailActivity : AppCompatActivity() {
                 else -> ""
             }
 
-            ratingRedList[i].rating = factorData.value
+            ratingRedList[i].rating = factorData.count
         }
     }
 

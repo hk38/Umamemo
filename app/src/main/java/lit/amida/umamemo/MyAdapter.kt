@@ -2,9 +2,7 @@ package lit.amida.umamemo
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import lit.amida.umamemo.databinding.ItemListBinding
 
@@ -27,9 +25,9 @@ class MyAdapter(private val context: Context, private val listener: OnItemClickL
         var sumOfBlueFactor = 0f
         var sumOfRedFactor = 0f
 
-        item.blueFactors.forEach { sumOfBlueFactor += it.value }
+        item.blueFactors.forEach { sumOfBlueFactor += it.count }
 
-        item.redFactors.forEach{ sumOfRedFactor += it.value }
+        item.redFactors.forEach{ sumOfRedFactor += it.count }
 
         holder.binding.container.setOnClickListener { listener.onItemClick(item) }
         holder.binding.textName.text = item.name

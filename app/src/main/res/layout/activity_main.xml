@@ -44,236 +44,18 @@
         android:background="?background"
         android:paddingTop="32dp"
         android:paddingBottom="24dp"
-        app:behavior_peekHeight="32dp"
+        app:behavior_peekHeight="64dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         tools:context=".BottomSheetFragment">
 
         <HorizontalScrollView
-            android:id="@+id/blue_scroll_view1"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toTopOf="@id/rating_blue1"
-            app:layout_constraintEnd_toStartOf="@id/blue_scroll_view2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <RadioGroup
-                android:id="@+id/blue_radio_group1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp">
-
-                <RadioButton
-                    android:id="@+id/radio_speed1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="スピード" />
-
-                <RadioButton
-                    android:id="@+id/radio_stamina1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="スタミナ" />
-
-                <RadioButton
-                    android:id="@+id/radio_power1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="パワー" />
-
-                <RadioButton
-                    android:id="@+id/radio_guts1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="根性" />
-
-                <RadioButton
-                    android:id="@+id/radio_intelligent1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="賢さ" />
-
-            </RadioGroup>
-        </HorizontalScrollView>
-
-        <RatingBar
-            android:id="@+id/rating_blue1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="3"
-            android:rating="1"
-            android:stepSize="1"
-            app:layout_constraintBottom_toTopOf="@id/blue_scroll_view3"
-            app:layout_constraintEnd_toStartOf="@id/rating_blue2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/blue_scroll_view1" />
-
-        <HorizontalScrollView
-            android:id="@+id/blue_scroll_view2"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toTopOf="@id/rating_blue2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/blue_scroll_view1"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <RadioGroup
-                android:id="@+id/blue_radio_group2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp">
-
-                <RadioButton
-                    android:id="@+id/radio_speed2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="スピード" />
-
-                <RadioButton
-                    android:id="@+id/radio_stamina2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="スタミナ" />
-
-                <RadioButton
-                    android:id="@+id/radio_power2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="パワー" />
-
-                <RadioButton
-                    android:id="@+id/radio_guts2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="根性" />
-
-                <RadioButton
-                    android:id="@+id/radio_intelligent2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="賢さ" />
-            </RadioGroup>
-        </HorizontalScrollView>
-
-        <RatingBar
-            android:id="@+id/rating_blue2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="3"
-            android:rating="1"
-            android:stepSize="1"
-            app:layout_constraintBottom_toTopOf="@id/red_scroll_view1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/rating_blue1"
-            app:layout_constraintTop_toBottomOf="@+id/blue_scroll_view2" />
-
-        <HorizontalScrollView
-            android:id="@+id/blue_scroll_view3"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toTopOf="@id/rating_blue3"
-            app:layout_constraintEnd_toStartOf="@id/red_scroll_view1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rating_blue1">
-
-            <RadioGroup
-                android:id="@+id/blue_radio_group3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp">
-
-                <RadioButton
-                    android:id="@+id/radio_speed3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="スピード" />
-
-                <RadioButton
-                    android:id="@+id/radio_stamina3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="スタミナ" />
-
-                <RadioButton
-                    android:id="@+id/radio_power3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="パワー" />
-
-                <RadioButton
-                    android:id="@+id/radio_guts3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="根性" />
-
-                <RadioButton
-                    android:id="@+id/radio_intelligent3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="賢さ" />
-            </RadioGroup>
-        </HorizontalScrollView>
-
-        <RatingBar
-            android:id="@+id/rating_blue3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="3"
-            android:rating="1"
-            android:stepSize="1"
-            app:layout_constraintBottom_toTopOf="@id/red_scroll_view2"
-            app:layout_constraintEnd_toStartOf="@id/rating_red1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/blue_scroll_view3" />
-
-        <HorizontalScrollView
             android:id="@+id/red_scroll_view1"
-            android:layout_width="120dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toTopOf="@id/rating_red1"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toEndOf="@id/blue_scroll_view1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/blue_scroll_view3"
-            app:layout_constraintTop_toBottomOf="@id/rating_blue2">
+            app:layout_constraintTop_toTopOf="parent">
 
             <RadioGroup
                 android:id="@+id/red_radio_group1"
@@ -367,23 +149,94 @@
             android:id="@+id/rating_red1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:numStars="3"
             android:rating="1"
             android:stepSize="1"
-            app:layout_constraintBottom_toTopOf="@id/red_scroll_view3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/rating_blue3"
-            app:layout_constraintTop_toBottomOf="@id/red_scroll_view1" />
+            app:layout_constraintStart_toEndOf="@+id/rating_blue1"
+            app:layout_constraintTop_toBottomOf="@+id/red_scroll_view1" />
+
+        <HorizontalScrollView
+            android:id="@+id/blue_scroll_view1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toStartOf="@id/red_scroll_view1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioGroup
+                android:id="@+id/blue_radio_group1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <RadioButton
+                    android:id="@+id/radio_speed1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="スピード" />
+
+                <RadioButton
+                    android:id="@+id/radio_stamina1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="スタミナ" />
+
+                <RadioButton
+                    android:id="@+id/radio_power1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="パワー" />
+
+                <RadioButton
+                    android:id="@+id/radio_guts1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="根性" />
+
+                <RadioButton
+                    android:id="@+id/radio_intelligent1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="賢さ" />
+
+            </RadioGroup>
+        </HorizontalScrollView>
+
+        <RatingBar
+            android:id="@+id/rating_blue1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:numStars="3"
+            android:rating="1"
+            android:stepSize="1"
+            app:layout_constraintEnd_toStartOf="@+id/rating_red1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/blue_scroll_view1" />
 
         <HorizontalScrollView
             android:id="@+id/red_scroll_view2"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toTopOf="@id/rating_red2"
-            app:layout_constraintEnd_toStartOf="@id/red_scroll_view3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rating_blue3">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/blue_scroll_view2"
+            app:layout_constraintTop_toBottomOf="@+id/rating_red1">
 
             <RadioGroup
                 android:id="@+id/red_radio_group2"
@@ -479,22 +332,164 @@
             android:id="@+id/rating_red2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:numStars="3"
+            android:rating="1"
+            android:stepSize="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rating_blue2"
+            app:layout_constraintTop_toBottomOf="@id/red_scroll_view2" />
+
+        <HorizontalScrollView
+            android:id="@+id/blue_scroll_view2"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@id/red_scroll_view2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rating_blue1">
+
+            <RadioGroup
+                android:id="@+id/blue_radio_group2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <RadioButton
+                    android:id="@+id/radio_speed2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="スピード" />
+
+                <RadioButton
+                    android:id="@+id/radio_stamina2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="スタミナ" />
+
+                <RadioButton
+                    android:id="@+id/radio_power2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="パワー" />
+
+                <RadioButton
+                    android:id="@+id/radio_guts2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="根性" />
+
+                <RadioButton
+                    android:id="@+id/radio_intelligent2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="賢さ" />
+            </RadioGroup>
+        </HorizontalScrollView>
+
+        <RatingBar
+            android:id="@+id/rating_blue2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:numStars="3"
+            android:rating="1"
+            android:stepSize="1"
+            app:layout_constraintEnd_toStartOf="@id/rating_red2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/blue_scroll_view2" />
+
+        <HorizontalScrollView
+            android:id="@+id/blue_scroll_view3"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@id/red_scroll_view3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rating_blue2">
+
+            <RadioGroup
+                android:id="@+id/blue_radio_group3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <RadioButton
+                    android:id="@+id/radio_speed3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="スピード" />
+
+                <RadioButton
+                    android:id="@+id/radio_stamina3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="スタミナ" />
+
+                <RadioButton
+                    android:id="@+id/radio_power3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="パワー" />
+
+                <RadioButton
+                    android:id="@+id/radio_guts3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="根性" />
+
+                <RadioButton
+                    android:id="@+id/radio_intelligent3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="賢さ" />
+            </RadioGroup>
+        </HorizontalScrollView>
+
+        <RatingBar
+            android:id="@+id/rating_blue3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:numStars="3"
             android:rating="1"
             android:stepSize="1"
             app:layout_constraintEnd_toStartOf="@id/rating_red3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/red_scroll_view2" />
+            app:layout_constraintTop_toBottomOf="@id/blue_scroll_view3" />
 
         <HorizontalScrollView
             android:id="@+id/red_scroll_view3"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toTopOf="@id/rating_red3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/red_scroll_view2"
-            app:layout_constraintTop_toBottomOf="@id/rating_red1">
+            app:layout_constraintStart_toEndOf="@id/blue_scroll_view3"
+            app:layout_constraintTop_toBottomOf="@id/rating_red2">
 
             <RadioGroup
                 android:id="@+id/red_radio_group3"
@@ -590,11 +585,25 @@
             android:id="@+id/rating_red3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:numStars="3"
             android:rating="1"
             android:stepSize="1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/rating_red2"
+            app:layout_constraintStart_toEndOf="@id/rating_blue3"
             app:layout_constraintTop_toBottomOf="@id/red_scroll_view3" />
+
+        <Button
+            android:id="@+id/button_reset"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="条件をリセット"
+            app:cornerRadius="16dp"
+            app:icon="@drawable/ic_baseline_clear_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rating_red3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
