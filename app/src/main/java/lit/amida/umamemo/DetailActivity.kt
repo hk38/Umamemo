@@ -34,39 +34,37 @@ class DetailActivity : AppCompatActivity() {
         val textRedList = listOf(binding.textMyRed, binding.textSireRed, binding.textFamilyRed)
         val ratingRedList = listOf(binding.ratingMyRed, binding.ratingSireRed, binding.ratingFamilyRed)
 
-        item?.blueFactors?.forEachIndexed { i, factorData -> setBlue(factorData.type, textBlueList[i], factorData.value, ratingBlueList[i]) }
-        item?.redFactors?.forEachIndexed { i, factorData -> setRed(factorData.type, textRedList[i], factorData.value, ratingRedList[i]) }
-    }
-    
-    fun setBlue(type: Int, textView: TextView, value: Float, ratingBar: RatingBar){
-        textView.text = when(type){
-            BLUE_TYPE_SPEED -> "スピード"
-            BLUE_TYPE_STAMINA -> "スタミナ"
-            BLUE_TYPE_POWER -> "パワー"
-            BLUE_TYPE_GUTS -> "根性"
-            BLUE_TYPE_INTELLIGENT -> "賢さ"
-            else -> ""
+        item?.blueFactors?.forEachIndexed { i, factorData ->
+            textBlueList[i].text = when(factorData.type){
+                BLUE_TYPE_SPEED -> "スピード"
+                BLUE_TYPE_STAMINA -> "スタミナ"
+                BLUE_TYPE_POWER -> "パワー"
+                BLUE_TYPE_GUTS -> "根性"
+                BLUE_TYPE_INTELLIGENT -> "賢さ"
+                else -> ""
+            }
+
+            ratingBlueList[i].rating = factorData.value
         }
 
-        ratingBar.rating = value
-    }
 
-    fun setRed(type: Int, textView: TextView, value: Float, ratingBar: RatingBar){
-        textView.text = when(type){
-            RED_TYPE_TURF -> "芝"
-            RED_TYPE_DIRT -> "ダート"
-            RED_TYPE_SHORT -> "短距離"
-            RED_TYPE_MILE -> "マイル"
-            RED_TYPE_MIDDLE -> "中距離"
-            RED_TYPE_LONG -> "長距離"
-            RED_TYPE_FR -> "逃げ"
-            RED_TYPE_STALKER -> "先行"
-            RED_TYPE_SOTP -> "差し"
-            RED_TYPE_OFFER -> "追込"
-            else -> ""
+        item?.redFactors?.forEachIndexed { i, factorData ->
+            textRedList[i].text = when(factorData.type){
+                RED_TYPE_TURF -> "芝"
+                RED_TYPE_DIRT -> "ダート"
+                RED_TYPE_SHORT -> "短距離"
+                RED_TYPE_MILE -> "マイル"
+                RED_TYPE_MIDDLE -> "中距離"
+                RED_TYPE_LONG -> "長距離"
+                RED_TYPE_FR -> "逃げ"
+                RED_TYPE_STALKER -> "先行"
+                RED_TYPE_SOTP -> "差し"
+                RED_TYPE_OFFER -> "追込"
+                else -> ""
+            }
+
+            ratingRedList[i].rating = factorData.value
         }
-
-        ratingBar.rating = value
     }
 
     override fun onDestroy() {

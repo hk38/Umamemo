@@ -17,38 +17,24 @@ class EditActivity : AppCompatActivity() {
         Realm.getDefaultInstance()
     }
 
-    val blueTypeList = arrayOf("スピード", "スタミナ", "パワー", "根性", "賢さ")
-    val redTypeList = arrayOf("芝", "ダート", "短距離", "マイル", "中距離", "長距離", "逃げ", "先行", "差し", "追込")
-    val blueArray = Array(3){0}
-    val redArray = Array(3){0}
-    
-    val blueButtons = mutableListOf<Button>()
-    val redButtons = mutableListOf<Button>()
-    val blueRatings = mutableListOf<RatingBar>()
-    val redRatings = mutableListOf<RatingBar>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        
-        blueButtons.add(binding.buttonMyBlue)
-        blueButtons.add(binding.buttonSireBlue)
-        blueButtons.add(binding.buttonFamilyBlue)
-        redButtons.add(binding.buttonMyRed)
-        redButtons.add(binding.buttonSireRed)
-        redButtons.add(binding.buttonFamilyRed)
-        blueRatings.add(binding.ratingMyBlue)
-        blueRatings.add(binding.ratingSireBlue)
-        blueRatings.add(binding.ratingFamilyBlue)
-        redRatings.add(binding.ratingMyRed)
-        redRatings.add(binding.ratingSireRed)
-        redRatings.add(binding.ratingFamilyRed)
+
+        val blueTypeList = arrayOf("スピード", "スタミナ", "パワー", "根性", "賢さ")
+        val redTypeList = arrayOf("芝", "ダート", "短距離", "マイル", "中距離", "長距離", "逃げ", "先行", "差し", "追込")
+        val blueArray = Array(3){0}
+        val redArray = Array(3){0}
+        val blueButtons = listOf(binding.buttonMyBlue, binding.buttonSireBlue, binding.buttonFamilyBlue)
+        val redButtons = listOf(binding.buttonMyRed, binding.buttonSireRed, binding.buttonFamilyRed)
+        val blueRatings = listOf(binding.ratingMyBlue, binding.ratingSireBlue, binding.ratingFamilyBlue)
+        val redRatings = listOf(binding.ratingMyRed, binding.ratingSireRed, binding.ratingFamilyRed)
 
         blueButtons.forEachIndexed { index, button ->
             button.setOnClickListener {
                 AlertDialog.Builder(this) // FragmentではActivityを取得して生成
-                        .setTitle("リスト選択ダイアログ")
+                        .setTitle("青因子の種類を選択")
                         .setItems(blueTypeList) { _, which ->
                             button.text = blueTypeList[which]
                             blueArray[index] = which+1
@@ -60,7 +46,7 @@ class EditActivity : AppCompatActivity() {
         redButtons.forEachIndexed { index, button ->
             button.setOnClickListener {
                 AlertDialog.Builder(this) // FragmentではActivityを取得して生成
-                        .setTitle("リスト選択ダイアログ")
+                        .setTitle("赤因子の種類を選択")
                         .setItems(redTypeList) { _, which ->
                             button.text = redTypeList[which]
                             redArray[index] = which+1
