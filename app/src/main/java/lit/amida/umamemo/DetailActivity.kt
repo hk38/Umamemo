@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.RatingBar
 import android.widget.TextView
 import io.realm.Realm
 import lit.amida.umamemo.databinding.ActivityDetailBinding
@@ -28,25 +29,16 @@ class DetailActivity : AppCompatActivity() {
         binding.textPoint.text = item?.point.toString()
         binding.textName.text = item?.name
         
-        setBlueType(item?.myBlueType, binding.textMyBlue)
-        setBlueType(item?.sireBlueType, binding.textSireBlue)
-        setBlueType(item?.familyBlueType, binding.textFamilyBlue)
-        setRedType(item?.myRedType, binding.textMyRed)
-        setRedType(item?.sireRedType, binding.textSireRed)
-        setRedType(item?.familyRedType, binding.textFamilyRed)
-        
-        binding.ratingMyBlue.rating = item?.myBlueValue ?: 0f
-        binding.ratingSireBlue.rating = item?.sireBlueValue ?: 0f
-        binding.ratingFamilyBlue.rating = item?.familyBlueValue ?: 0f
-        binding.ratingMyRed.rating = item?.myRedValue ?: 0f
-        binding.ratingSireRed.rating = item?.sireRedValue ?: 0f
-        binding.ratingFamilyRed.rating = item?.familyRedValue ?: 0f
+        val textBlueList = listOf(binding.textMyBlue, binding.textSireBlue, binding.textFamilyBlue)
+        val ratingBlueList = listOf(binding.ratingMyBlue, binding.ratingSireBlue, binding.ratingFamilyBlue)
+        val textRedList = listOf(binding.textMyRed, binding.textSireRed, binding.textFamilyRed)
+        val ratingRedList = listOf(binding.ratingMyRed, binding.ratingSireRed, binding.ratingFamilyRed)
 
+        item?.blueFactors?.forEachIndexed { i, factorData -> setBlue(factorData.type, textBlueList[i], factorData.value, ratingBlueList[i]) }
+        item?.redFactors?.forEachIndexed { i, factorData -> setRed(factorData.type, textRedList[i], factorData.value, ratingRedList[i]) }
     }
     
-    fun setBlueType(type: Int?, textView: TextView){
-        if(type == null) return
-        
+    fun setBlue(type: Int, textView: TextView, value: Float, ratingBar: RatingBar){
         textView.text = when(type){
             BLUE_TYPE_SPEED -> "スピード"
             BLUE_TYPE_STAMINA -> "スタミナ"
@@ -55,11 +47,11 @@ class DetailActivity : AppCompatActivity() {
             BLUE_TYPE_INTELLIGENT -> "賢さ"
             else -> ""
         }
+
+        ratingBar.rating = value
     }
 
-    fun setRedType(type: Int?, textView: TextView){
-        if(type == null) return
-
+    fun setRed(type: Int, textView: TextView, value: Float, ratingBar: RatingBar){
         textView.text = when(type){
             RED_TYPE_TURF -> "芝"
             RED_TYPE_DIRT -> "ダート"
@@ -72,8 +64,9 @@ class DetailActivity : AppCompatActivity() {
             RED_TYPE_SOTP -> "差し"
             RED_TYPE_OFFER -> "追込"
             else -> ""
-
         }
+
+        ratingBar.rating = value
     }
 
     override fun onDestroy() {

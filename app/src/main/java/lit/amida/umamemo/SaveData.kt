@@ -1,5 +1,6 @@
 package lit.amida.umamemo
 
+import io.realm.RealmList
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 import java.util.*
@@ -9,18 +10,8 @@ open class SaveData (
     open var rank: String = "",
     open var point: Int = 0,
     open var name: String = "",
-    open var myBlueType: Int = 0,
-    open var myBlueValue: Float = 0f,
-    open var myRedType: Int = 0,
-    open var myRedValue: Float = 0f,
-    open var sireBlueType: Int = 0,
-    open var sireBlueValue: Float = 0f,
-    open var sireRedType: Int = 0,
-    open var sireRedValue: Float = 0f,
-    open var familyBlueType: Int = 0,
-    open var familyBlueValue: Float = 0f,
-    open var familyRedType: Int = 0,
-    open var familyRedValue: Float = 0f,
+    open var blueFactors: RealmList<FactorData> = RealmList<FactorData>(),
+    open var redFactors: RealmList<FactorData> = RealmList<FactorData>(),
     open var sumOfSpeed: Int = 0,
     open var sumOfStamina: Int = 0,
     open var sumOfPower: Int = 0,
@@ -36,6 +27,11 @@ open class SaveData (
     open var sumOfStalker: Int = 0,
     open var sumOfSotp: Int = 0,
     open var sumOfOffer: Int = 0
+): RealmObject()
+
+open class FactorData(
+    open var type: Int = 0,
+    open var value: Float = 0f
 ): RealmObject()
 
 const val BLUE_TYPE_SPEED = 1

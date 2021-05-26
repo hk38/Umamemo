@@ -24,12 +24,19 @@ class MyAdapter(private val context: Context, private val listener: OnItemClickL
     // RecyclerViewのn番目の要素に保持しているデータのn番目の要素を結びつける
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = items[position]
+        var sumOfBlueFactor = 0f
+        var sumOfRedFactor = 0f
+
+        item.blueFactors.forEach { sumOfBlueFactor += it.value }
+
+        item.redFactors.forEach{ sumOfRedFactor += it.value }
+
         holder.binding.container.setOnClickListener { listener.onItemClick(item) }
         holder.binding.textName.text = item.name
         holder.binding.textRank.text = item.rank
         holder.binding.textPoint.text = item.point.toString()
-        holder.binding.textBlue.text = "青因子合計：${(item.myBlueValue + item.sireBlueValue + item.familyBlueValue).toInt()}"
-        holder.binding.textRed.text = "赤因子合計：${(item.myRedValue + item.sireRedValue + item.familyRedValue).toInt()}"
+        holder.binding.textBlue.text = "青因子合計：${sumOfBlueFactor.toInt()}"
+        holder.binding.textRed.text = "赤因子合計：${sumOfRedFactor.toInt()}"
     }
 
     override fun getItemCount(): Int {
